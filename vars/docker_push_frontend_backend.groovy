@@ -1,4 +1,5 @@
-stage('Push to Docker Hub') {
+def call(String FRONTEND_IMAGE, String BACKEND_IMAGE, String DOCKER_TAG, String DOCKER_HUB_USER){
+  stage('Push to Docker Hub') {
                 withCredentials([usernamePassword(
                     credentialsId: "dockerhub_creds",
                     usernameVariable: "DOCKER_HUB_USER",
