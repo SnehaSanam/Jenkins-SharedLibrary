@@ -13,5 +13,6 @@ def call(String FRONTEND_IMAGE, String BACKEND_IMAGE, String DOCKER_TAG, String 
                     docker push $DOCKER_HUB_USER/${BACKEND_IMAGE}:${DOCKER_TAG}
                 """
             }
-        }    
+        }   
+}
   
