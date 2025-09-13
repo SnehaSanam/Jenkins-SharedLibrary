@@ -1,5 +1,9 @@
- sh """
-                docker build -t ${FRONTEND_IMAGE}:${DOCKER_TAG} -f frontend/frontend-dockerfile ./frontend
-                docker build -t ${BACKEND_IMAGE}:${DOCKER_TAG} -f backend/backend-dockerfile ./backend
-                docker images
-                """
+ def call(String dockerRegistry, String imageTag) {
+    stage('Docker Build') {
+        echo "Building Docker images..."
+        sh """
+            docker build -t ${dockerRegistry}/chattingo-frontend:${imageTag} ./frontend
+            docker build -t ${dockerRegistry}/chattingo-backend:${imageTag} ./backend
+        """
+    }
+}
